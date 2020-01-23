@@ -17,7 +17,7 @@ class Team{
 
 private:
   int num;
-  int forward;
+  int forward; //a multiplier used to determine which direction they should be going
   int win; //0 for playing, 1 for win state, -1 for loss state
   list <Piece> teamPieces;
 

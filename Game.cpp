@@ -26,8 +26,8 @@ Game::Game()
   for(int i = 0; i < currentBoard.getX(); i++)
   {
 
-    currentBoard.setPiece(new Piece(), 0 * currentBoard.getY() + i);
-    currentBoard.setPiece(new Piece(), 7 * currentBoard.getY() + i);
+    currentBoard.setPiece(new Piece(teams[0]), 0 * currentBoard.getY() + i);
+    currentBoard.setPiece(new Piece(teams[1]), 7 * currentBoard.getY() + i);
 
   }
 
@@ -59,8 +59,11 @@ Game::Game(int tNum)
 
     currentBoard.setPiece(new Piece(teams[0]), 0 * currentBoard.getY() + i);
     currentBoard.setPiece(new Piece(teams[1]), 7 * currentBoard.getY() + i);
-
   }
+
+  inter = new TermInterface(&currentBoard);
+
+  inter->printBoard();
 
 }
 //setters
