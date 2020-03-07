@@ -35,6 +35,7 @@ class Board{
     Piece* getPiece(int loc);
     int getX();
     int getY();
+    int getTot();
 
 };
 

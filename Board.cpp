@@ -111,3 +111,8 @@ int Board::getY(){
   return baseY;
 
 }
+int Board::getTot(){
+
+  return basex * baseY;
+
+}

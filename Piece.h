@@ -5,32 +5,35 @@
 
 //=================================
 // forward declared dependencies
-class Team;
 
 //=================================
 // included dependencies
-#include "Team.h"
 
 class Piece
 {
 private:
-  Team* team;
+  int teamNum;  //numeric identifier of the team
+  int teamDir;  //direction the team moves forward
   bool alive;
 
 public:
   //constructors
   Piece();
-  Piece(Team* pTeam);
+  Piece(int tn, int td);
   //destructor
   ~Piece();
   //setters
   void setAlive(bool al);
-  void setTeam(Team* pTeam);
+  void setTeam(int tn);
+  void setDirection(int td);
+  void setTeamDir(int tn, int td);
   //getters
   bool getAlive();
-  Team* getTeam();
+  int getTeam();
+  int getDirection();
   //methods
   bool flipAlive();
+  int flipDirection();
 };
 
 #endif //PIECE_H

@@ -6,10 +6,10 @@ using namespace std;
 
 //constructors
 Piece::Piece()
-: team(NULL), alive(true)
+: teamNum(0), teamDir(8), alive(true)
 {}
-Piece::Piece(Team* pTeam)
-: team(pTeam), alive(true)
+Piece::Piece(int tn, int td)
+: teamNum(tn), teamDir(td), alive(true)
 {}
 
 //destructor
@@ -23,10 +23,24 @@ void Piece::setAlive(bool al)
   alive = al;
 
 }
-void Piece::setTeam(Team* pTeam)
+void Piece::setTeam(int tn)
 {
 
-  team = pTeam;
+  teamNum = tn;
+
+}
+void Piece::setDirection(int td)
+{
+
+  teamDir = td;
+
+}
+void Piece::setTeamDir(int tn, int td)
+{
+
+  teamNum = tn;
+
+  teamDir = td;
 
 }
 
@@ -37,10 +51,16 @@ bool Piece::getAlive()
   return alive;
 
 }
-Team* Piece::getTeam()
+int Piece::getTeam()
 {
 
-  return team;
+  return teamNum;
+
+}
+int Piece::getDirection()
+{
+
+  return teamDir;
 
 }
 
@@ -50,5 +70,13 @@ bool Piece::flipAlive()
   alive = !alive;
 
   return alive;
+
+}
+int Piece::flipDirection()
+{
+
+  teamDir = teamDir * -1;
+
+  return teamDir;
 
 }
