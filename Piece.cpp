@@ -14,11 +14,7 @@ Piece::Piece(Team* pTeam)
 
 //destructor
 Piece::~Piece()
-{
-
-  delete team;
-  
-}
+{}
 
 //setters
 void Piece::setAlive(bool al)

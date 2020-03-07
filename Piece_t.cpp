@@ -1,5 +1,8 @@
 #include <iostream> // 'cause always this
 #include <list>     // for the list needed for team.h
+#include <cassert> // for assert()
+
+//#define NDEBUG    //disables assert statement
 
 using namespace std;
 
@@ -40,6 +43,7 @@ int main()
   cout << "\n\n\n";
 
   Team testTeam = Team(0, 1);
+  Team otherTeam = Team(1, -1);
 
   Piece teamPiece = Piece(&testTeam);
 
