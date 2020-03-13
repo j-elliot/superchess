@@ -33,6 +33,7 @@ class Board{
     //getters
     bool getOccupied(int loc);
     Piece* getPiece(int loc);
+    int getTeam(int loc);//write test
     int getX();
     int getY();
     int getTot();

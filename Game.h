@@ -7,23 +7,20 @@
 // forward declared dependencies
 class Board;
 class Piece;
-class Team;
 class TermInterface;
 
 //=================================
 // included dependencies
 #include "Board.h"
 #include "Piece.h"
-#include "Team.h"
 #include "TermInterface.h"
 
 class Game{
 
   private:
-    Board currentBoard;
+    Board board;
     int numTeams;
     int current;
-    Team** teams;
     TermInterface* inter;
 
   public:
@@ -31,8 +28,11 @@ class Game{
     Game();
     Game(int tNum);
     //setters
-    void runGame();
+    void setTurn();
+    void setTurn(int newTurn);
     //getters
+    //methods
+    void runGame();
 
 };
 

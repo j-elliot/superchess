@@ -81,6 +81,12 @@ int main()
   if(testSpace->hasPiece())
     cout << testSpace->getPiece()->flipAlive();
   assert((testSpace->getPiece()->getAlive() == true) && "Piece should have been flipped to alive but wasn't.");
+
+  cout << "\nRemoving piece...\n";
+  testSpace->setPiece(NULL);
+  cout << "\nDoes space have a piece?\n";
+  cout << testSpace->hasPiece();
+  assert((testSpace->hasPiece() == false) && "Test space should not have a piece but does.");
   cout << "\n\n\n";
 
   Space otherSpace = Space(new Piece(0, 8));

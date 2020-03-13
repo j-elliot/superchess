@@ -6,73 +6,77 @@ using namespace std;
 
 //constructors
 Game::Game()
-  : currentBoard(Board()), numTeams(2), current(0)
+  : board(Board()), numTeams(2), current(0)
 {
 
-  teams = (Team**)malloc(sizeof(Team *) * numTeams);
-
-  for(int i = 0; i < numTeams; i++){
-
-    int forward = 0;
-    if(i%4 == 0) forward = 8;
-    if(i%4 == 1) forward = -8;
-    if(i%4 == 2) forward = 1;
-    if(i%4 == 3) forward = -1;
-
-    teams[i] = new Team(i, forward);
-
-  }
-
-  for(int i = 0; i < currentBoard.getX(); i++)
+  for(int i = 0; i < board.getX(); i++)
   {
 
-    currentBoard.setPiece(new Piece(teams[0]), 0 * currentBoard.getY() + i);
-    currentBoard.setPiece(new Piece(teams[1]), 7 * currentBoard.getY() + i);
+    board.setPiece(new Piece(0, 1), 0 * board.getY() + i);
+    board.setPiece(new Piece(1, -1), 7 * board.getY() + i);
 
   }
 
-  inter = new TermInterface(&currentBoard);
+  inter = new TermInterface(&board);
 
   inter->printBoard();
 
 }
 Game::Game(int tNum)
-  : currentBoard(Board()), numTeams(tNum), current(0)
+  : board(Board()), numTeams(tNum), current(0)
 {
 
-  teams = (Team**)malloc(sizeof(Team *) * numTeams);
-
-  for(int i = 0; i < numTeams; i++){
-
-    int forward = 0;
-    if(i%4 == 0) forward = 8;
-    if(i%4 == 1) forward = -8;
-    if(i%4 == 2) forward = 1;
-    if(i%4 == 3) forward = -1;
-
-    teams[i] = new Team(i, forward);
-
-  }
-
-  for(int i = 0; i < currentBoard.getX(); i++)
+  for(int i = 0; i < board.getX(); i++)
   {
 
-    currentBoard.setPiece(new Piece(teams[0]), 0 * currentBoard.getY() + i);
-    currentBoard.setPiece(new Piece(teams[1]), 7 * currentBoard.getY() + i);
+    board.setPiece(new Piece(0, 1), 0 * board.getY() + i);
+    board.setPiece(new Piece(1, -1), 7 * board.getY() + i);
   }
 
-  inter = new TermInterface(&currentBoard);
+  inter = new TermInterface(&board);
 
   inter->printBoard();
 
 }
 //setters
+void Game::setTurn()
+{
+
+  current = (current + 1) % numTeams;
+
+}
+void Game::setTurn(int newTurn)
+{
+
+  if(newTurn <= numTeams && newTurn >= 0)
+  {
+
+    current = newTurn;
+
+  }else{
+
+    cout << "New turn is invalid.";
+
+  }
+
+}
+//getters
+//methods
 void Game::runGame()
 {
 
-  inter = new TermInterface(&currentBoard);
+  inter = new TermInterface(&board);
+
+  inter->printValidMoves(3);
+
+  board.movePiece(3, 11);
+
+  cout << "\n\n\n";
+
+  inter->printValidMoves(11);
 
   //principal game loop
+  /**
   while(true)
   {
 
@@ -81,13 +85,12 @@ void Game::runGame()
     //whose turn?
     cout << "It is ";
     cout << current;
-    cout << "'s turn...";
+    cout << "'s turn...\n";
     //What do they get to do?
 
     //did someone win?
     //whose next?
-    current = current++ % numTeams;
-  }
+    setTurn();
+  }*/
 
 }
-//getters

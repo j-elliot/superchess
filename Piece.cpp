@@ -63,7 +63,21 @@ int Piece::getDirection()
   return teamDir;
 
 }
+bool Piece::getMoveValid(int start, int end, int boardX, int takeTeam)
+{
 
+  int deltaX = (abs((start % boardX) - (end % boardX)));
+  int deltaY = (abs((start / boardX) - (end / boardX)));
+
+  if(((deltaX + deltaY) == 1)   //can move only to spaces up down left and right
+      && (takeTeam == -1))      //cannot move to an occupied space
+    return true;
+
+  return false;
+
+}
+
+//methods
 bool Piece::flipAlive()
 {
 

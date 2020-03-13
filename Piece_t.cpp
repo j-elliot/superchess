@@ -1,6 +1,7 @@
 #include <iostream> // 'cause always this
 #include <list>     // for the list needed for team.h
 #include <cassert> // for assert()
+#include <cstdlib>     //for math stuff such as absolute value
 
 //#define NDEBUG    //disables assert statement
 
@@ -88,5 +89,39 @@ int main()
   cout << "\nFlipping direction and outputting result...\n";
   cout << teamPiece.flipDirection();
   assert((teamPiece.getDirection() == -1) && "Piece is not moving in expected direction (-1).");
+  cout << "\n";
+
+  cout << "\nTesting move validation...\n";
+  cout << "\nChecking move from 28 to 29...\n";
+  cout << teamPiece.getMoveValid(28, 29, 8, -1);
+  assert((teamPiece.getMoveValid(28, 29, 8, -1) == true) && "Piece should be able to make this move but can't.");
+  cout << "\nChecking move from 28 to 27...\n";
+  cout << teamPiece.getMoveValid(28, 27, 8, -1);
+  assert((teamPiece.getMoveValid(28, 27, 8, -1) == true) && "Piece should be able to make this move but can't.");
+  cout << "\nChecking move from 28 to 36...\n";
+  cout << teamPiece.getMoveValid(28, 36, 8, -1);
+  assert((teamPiece.getMoveValid(28, 36, 8, -1) == true) && "Piece should be able to make this move but can't.");
+  cout << "\nChecking move from 28 to 20...\n";
+  cout << teamPiece.getMoveValid(28, 20, 8, -1);
+  assert((teamPiece.getMoveValid(28, 20, 8, -1) == true) && "Piece should be able to make this move but can't.");
+  cout << "\nChecking move from 28 to 37...\n";
+  cout << teamPiece.getMoveValid(28, 37, 8, -1);
+  assert((teamPiece.getMoveValid(28, 37, 8, -1) == false) && "Piece shouldn't be able to make this move but can.");
+  cout << "\nChecking move from 28 to 21...\n";
+  cout << teamPiece.getMoveValid(28, 21, 8, -1);
+  assert((teamPiece.getMoveValid(28, 21, 8, -1) == false) && "Piece shouldn't be able to make this move but can.");
+  cout << "\nChecking move from 28 to 19...\n";
+  cout << teamPiece.getMoveValid(28, 19, 8, -1);
+  assert((teamPiece.getMoveValid(28, 19, 8, -1) == false) && "Piece shouldn't be able to make this move but can.");
+  cout << "\nChecking move from 28 to 35...\n";
+  cout << teamPiece.getMoveValid(28, 35, 8, -1);
+  assert((teamPiece.getMoveValid(28, 35, 8, -1) == false) && "Piece shouldn't be able to make this move but can.");
+  cout << "\nChecking move to space occupied by ally\n";
+  cout << teamPiece.getMoveValid(28, 29, 8, 0);
+  assert((teamPiece.getMoveValid(28, 29, 8, 0) == false) && "Piece shouldn't be able to make this move but can.");
+  cout << "\nChecking move to space occupied by enemy\n";
+  cout << teamPiece.getMoveValid(28, 29, 8, 1);
+  assert((teamPiece.getMoveValid(28, 29, 8, 1) == false) && "Piece shouldn't be able to make this move but can.");
+  cout << "\n";
 
 }

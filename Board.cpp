@@ -101,6 +101,18 @@ Piece* Board::getPiece(int loc){
 
   }
 }
+int Board::getTeam(int loc){
+
+  if(spaces[loc]->hasPiece()){
+
+    return spaces[loc]->getPiece()->getTeam();
+
+  }else{
+
+    return -1;
+
+  }
+}
 int Board::getX(){
 
   return baseX;
@@ -113,6 +125,6 @@ int Board::getY(){
 }
 int Board::getTot(){
 
-  return basex * baseY;
+  return baseX * baseY;
 
 }

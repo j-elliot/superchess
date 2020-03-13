@@ -31,6 +31,7 @@ public:
   bool getAlive();
   int getTeam();
   int getDirection();
+  bool getMoveValid(int start, int end, int boardX, int takeTeam);
   //methods
   bool flipAlive();
   int flipDirection();
