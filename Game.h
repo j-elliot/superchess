@@ -18,7 +18,7 @@ class TermInterface;
 class Game{
 
   private:
-    Board board;
+    Board* board;
     int numTeams;
     int current;
     TermInterface* inter;
@@ -31,7 +31,9 @@ class Game{
     void setTurn();
     void setTurn(int newTurn);
     //getters
+    bool getWin();
     //methods
+    void makeMove(int start, int end);
     void runGame();
 
 };

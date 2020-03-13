@@ -30,10 +30,11 @@ class Board{
     void setPiece(Piece* newPiece, int loc);
     void movePiece(int fromLoc, int toLoc);
     void takePiece(int takeLoc);
+    
     //getters
     bool getOccupied(int loc);
     Piece* getPiece(int loc);
-    int getTeam(int loc);//write test
+    int getTeam(int loc);
     int getX();
     int getY();
     int getTot();
