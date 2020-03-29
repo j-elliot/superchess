@@ -25,6 +25,7 @@ class TermInterface{
     //getters
     void printBoard();
     void printValidMoves(int start);
+    //methods
 
 };
 

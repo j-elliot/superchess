@@ -145,6 +145,48 @@ int main()
   cout << "\nWhat is the team of the piece on space 4?\n";
   cout << miniBoard.getPiece(4)->getTeam();
   assert((miniBoard.getPiece(4)->getTeam() == 2) && "This piece's team should be 2 but isn't.\n");
+  cout << "\nWhat is the forward direction of the piece on space 4?\n";
+  cout << miniBoard.getPiece(4)->getDirection();
+  assert((miniBoard.getPiece(4)->getDirection() == -1) && "This piece's direction should be -1 but isn't.\n");
+  cout << "\n";
+
+  cout << "\nPass through tests of board member functions...\n";
+  cout << "\nWhat is the team of the piece on space 4?\n";
+  cout << miniBoard.getTeam(4);
+  assert((miniBoard.getTeam(4) == 2) && "This piece's team should be 2 but isn't.\n");
+  cout << "\nWhat is the forward direction of the piece on space 4?\n";
+  cout << miniBoard.getDir(4);
+  assert((miniBoard.getDir(4) == -1) && "This piece's direction should be -1 but isn't.\n");
+  cout << "\n";
+
+  cout << "\nRelative coordinate function tests...\n";
+  cout << "\nWhat is forward for the piece on space 4?\n";
+  cout << miniBoard.getForward(4);
+  assert((miniBoard.getForward(4) == 3) && "This piece's forward should be 3 but isn't.\n");
+  cout << "\nWhat is backward for the piece on space 4?\n";
+  cout << miniBoard.getBackward(4);
+  assert((miniBoard.getBackward(4) == 5) && "This piece's backward should be 5 but isn't.\n");
+  cout << "\nWhat is left for the piece on space 4?\n";
+  cout << miniBoard.getLeft(4);
+  assert((miniBoard.getLeft(4) == 7) && "This piece's left should be 7 but isn't.\n");
+  cout << "\nWhat is right for the piece on space 4?\n";
+  cout << miniBoard.getRight(4);
+  assert((miniBoard.getRight(4) == 1) && "This piece's right should be 1 but isn't.\n");
+  cout << "\n";
+
+  cout << "\nRelative coordinate function tests for hypotheticals...\n";
+  cout << "\nWhat is forward for a piece on space 26 with a direction of +8?\n";
+  cout << testBoard->getForward(26, 8);
+  assert((testBoard->getForward(26, 8) == 34) && "This piece's forward should be 34 but isn't.\n");
+  cout << "\nWhat is backward for a piece on space 26 with a direction of +8?\n";
+  cout << testBoard->getBackward(26, 8);
+  assert((testBoard->getBackward(26, 8) == 18) && "This piece's forward should be 18 but isn't.\n");
+  cout << "\nWhat is left for a piece on space 26 with a direction of +8?\n";
+  cout << testBoard->getLeft(26, 8);
+  assert((testBoard->getLeft(26, 8) == 27) && "This piece's forward should be 27 but isn't.\n");
+  cout << "\nWhat is right for a piece on space 26 with a direction of +8?\n";
+  cout << testBoard->getRight(26, 8);
+  assert((testBoard->getRight(26, 8) == 25) && "This piece's forward should be 25 but isn't.\n");
   cout << "\n";
 
 

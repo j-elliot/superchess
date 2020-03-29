@@ -1,0 +1,19 @@
+\documentclass{article}
+\usepackage[LSBC3,T1]{fontenc}
+\usepackage{chessboard}
+\usepackage{skak}
+\usepackage{color}
+\begin{document}
+\setboardfontencoding{LSBC3}
+\setchessboard{showmover=true}
+\newgame
+\chessboard[
+    coloremph,
+    fieldmaskcolor=red,
+    fieldcolor=red,
+    emphareas={a1-a8,c1-c8,e1-e8,g1-g8},
+    coloremph,
+    fieldmaskcolor=white,
+    fieldcolor=white,
+    emphareas={b1-b8,d1-d8,f1-f8,h1-h8}]
+\end{document}
